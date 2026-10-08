@@ -298,7 +298,7 @@ func TestCalculator_Calculate(t *testing.T) {
 
 		err = calculator.Calculate(context.Background(), logger, obj, "test/path")
 		require.ErrorIs(t, err, ErrUnprocessableObject)
-		require.ErrorContains(t, err, "must hold one streams section")
+		require.ErrorContains(t, err, "more than one streams section")
 		requireEmptyCalculator(t, calculator, indexBuilder)
 	})
 
@@ -312,7 +312,7 @@ func TestCalculator_Calculate(t *testing.T) {
 
 		err = calculator.Calculate(context.Background(), logger, obj, "test/path")
 		require.ErrorIs(t, err, ErrUnprocessableObject)
-		require.ErrorContains(t, err, "must hold one streams section")
+		require.ErrorContains(t, err, "no streams section")
 		requireEmptyCalculator(t, calculator, indexBuilder)
 	})
 
@@ -331,7 +331,7 @@ func TestCalculator_Calculate(t *testing.T) {
 
 		err = calculator.Calculate(context.Background(), logger, obj, "test/path")
 		require.ErrorIs(t, err, ErrUnprocessableObject)
-		require.ErrorContains(t, err, "must hold one streams section")
+		require.ErrorContains(t, err, "no streams section")
 		requireEmptyCalculator(t, calculator, indexBuilder)
 	})
 }
